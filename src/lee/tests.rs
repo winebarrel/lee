@@ -11,11 +11,9 @@ async fn test_tee() {
 
   let responses = vec![
     MockRequestDispatcher::default()
-      .with_json_body(DescribeLogGroupsResponse::new(vec!["log_group_name"], None)),
-    MockRequestDispatcher::default().with_json_body(DescribeLogStreamsResponse::new(
-      vec!["log_stream_name"],
-      None,
-    )),
+      .with_json_body(DescribeLogGroupsResponse::new(&["log_group_name"], None)),
+    MockRequestDispatcher::default()
+      .with_json_body(DescribeLogStreamsResponse::new(&["log_stream_name"], None)),
     MockRequestDispatcher::default()
       .with_json_body(PutLogEventsResponse::new("next_sequence_token")),
     MockRequestDispatcher::default()
@@ -50,14 +48,12 @@ async fn test_tee_with_create_group() {
 
   let responses = vec![
     MockRequestDispatcher::default().with_json_body(DescribeLogGroupsResponse::new(
-      vec!["log_group_name_not_exist"],
+      &["log_group_name_not_exist"],
       None,
     )),
     MockRequestDispatcher::default(), // CreateLogGroup response
-    MockRequestDispatcher::default().with_json_body(DescribeLogStreamsResponse::new(
-      vec!["log_stream_name"],
-      None,
-    )),
+    MockRequestDispatcher::default()
+      .with_json_body(DescribeLogStreamsResponse::new(&["log_stream_name"], None)),
     MockRequestDispatcher::default()
       .with_json_body(PutLogEventsResponse::new("next_sequence_token")),
     MockRequestDispatcher::default()
@@ -92,9 +88,9 @@ async fn test_tee_with_create_stream() {
 
   let responses = vec![
     MockRequestDispatcher::default()
-      .with_json_body(DescribeLogGroupsResponse::new(vec!["log_group_name"], None)),
+      .with_json_body(DescribeLogGroupsResponse::new(&["log_group_name"], None)),
     MockRequestDispatcher::default().with_json_body(DescribeLogStreamsResponse::new(
-      vec!["log_stream_name_not_exist"],
+      &["log_stream_name_not_exist"],
       None,
     )),
     MockRequestDispatcher::default(), // CreateLogStream response

@@ -15,7 +15,7 @@ pub struct DescribeLogGroupsResponse {
 }
 
 impl DescribeLogGroupsResponse {
-  pub fn new(log_groups: Vec<&str>, next_token: Option<String>) -> DescribeLogGroupsResponse {
+  pub fn new(log_groups: &[&str], next_token: Option<String>) -> DescribeLogGroupsResponse {
     DescribeLogGroupsResponse {
       log_groups: log_groups
         .iter()
@@ -43,7 +43,7 @@ pub struct DescribeLogStreamsResponse {
 }
 
 impl DescribeLogStreamsResponse {
-  pub fn new(log_streams: Vec<&str>, next_token: Option<String>) -> DescribeLogStreamsResponse {
+  pub fn new(log_streams: &[&str], next_token: Option<String>) -> DescribeLogStreamsResponse {
     DescribeLogStreamsResponse {
       log_streams: log_streams
         .iter()
