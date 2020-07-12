@@ -1,0 +1,15 @@
+[package]
+name = "lee"
+version = "0.1.0"
+authors = ["winebarrel <sugawara@winebarrel.jp>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+getopts = "0.2"
+rusoto_core = "0.44"
+rusoto_logs = "0.44"
+tokio = "0.2"
+chrono = "0.4"
+regex = "1.3"
