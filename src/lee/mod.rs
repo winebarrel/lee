@@ -1,3 +1,8 @@
+#[cfg(test)]
+mod mock;
+#[cfg(test)]
+mod tests;
+
 use regex::Regex;
 use rusoto_core::RusotoError;
 use rusoto_logs::{

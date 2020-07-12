@@ -558,6 +558,9 @@ dependencies = [
  "regex",
  "rusoto_core",
  "rusoto_logs",
+ "rusoto_mock",
+ "serde",
+ "serde_json",
  "tokio",
 ]
 
@@ -979,6 +982,21 @@ dependencies = [
  "async-trait",
  "bytes",
  "futures",
+ "rusoto_core",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "rusoto_mock"
+version = "0.44.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6fb65b30ea51d8f975eba8e03e6c10ed247f11a6f1b8fa225c2b844e98113366"
+dependencies = [
+ "async-trait",
+ "chrono",
+ "futures",
+ "http",
  "rusoto_core",
  "serde",
  "serde_json",
