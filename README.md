@@ -26,3 +26,7 @@ done | lee -g my-group -s my-stream
 
 # LogGroup/LogStream is created automatically
 ```
+
+## Related Links
+
+* https://github.com/winebarrel/logsf
