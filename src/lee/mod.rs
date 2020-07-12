@@ -14,6 +14,8 @@ use rusoto_logs::{
 use std::error;
 use std::io;
 
+const SEQUENCE_TOKEN_RE: &str = r#"\bsequenceToken(?: is)?: (\S+)\b"#;
+
 async fn log_group_exist<C>(
   client: &C,
   log_group_name: &str,
@@ -170,7 +172,7 @@ where
 
   let mut buf = String::new();
   let mut sequence_token = None;
-  let sequence_token_re = Regex::new(r#"\bsequenceToken(?: is)?: (\S+)\b"#).unwrap();
+  let sequence_token_re = Regex::new(SEQUENCE_TOKEN_RE).unwrap();
 
   while reader.read_line(&mut buf)? > 0 {
     let buf_no_nl = buf.trim_end();
